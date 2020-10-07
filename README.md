@@ -1,4 +1,4 @@
-# hellow-world
+# cv-portfolio
 
 ## Project setup
 ```
