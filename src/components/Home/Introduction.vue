@@ -1,14 +1,52 @@
 <template>
 
-  <div class="introduction pt-5">
-    <div class="container pt-5 section-intro">
-        <h1>
-          Hello, I'm <span style="color: deeppink">Jiahao Shen</span>.
+  <div class="introduction">
+
+<!--    Introduction-->
+    <div class="container py-5" >
+      <div class="pt-5">
+        <h1 class="mt-5">
+          Hello, I'm <span style="color: hotpink">Jiahao Shen</span>.
         </h1>
         <h2>
-          I'm a game programmer.
+          I'm a <b>game programmer</b>.
         </h2>
-    </div>
+      </div>
+
+    </div> <!--end of intro-->
+
+<!--    About-->
+    <div class="container mt-3">
+
+      <div class="row">
+
+        <div class="col-lg">
+          <div class="mx-5">
+            <h3>About <span style="color: hotpink">me</span></h3>
+<!--            Avatar-->
+            <el-avatar :size="80" :src = "require('@/assets/img/avatar.jpg')" :fit="scale-down"/>
+          </div>
+        </div>
+
+<!--        Content-->
+        <div class="col-lg text-about-content">
+          <p>
+            I'm a graduate student at DePaul University, major in game programming. I will graduate in November 2021.
+            My skill set includes C++ and C#.
+          </p>
+          <p>
+            I have experience of graphic and shader programming from course project.
+            I have built graphic systems with both DX11 and OpenGL.
+          </p>
+          <p>
+            I also have developed a 2D game, Space Invaders, which have used more than 10 design patterns.
+          </p>
+        </div>
+
+      </div>
+    </div> <!--end of about-->
+
+
 
   </div>
 
@@ -18,22 +56,45 @@
 
 export default {
   name: "Introduction",
-  computed: {
-    windowHeight: function ()
-    {
-      return (window.innerHeight)+'px';
+
+  data() {
+    return {
+      sectionHeight: this.getSectionHeight()
     }
+  },
+
+  methods: {
+    getSectionHeight: function ()
+    {
+      //console.log('get section height')
+      let windowHeight = window.innerHeight;
+      let outHeight;
+      outHeight = windowHeight * 0.85;
+      return outHeight + 'px';
+    }
+  },
+
+  mounted() {
+    const that = this;
+    window.onresize = () => {
+      that.sectionHeight = that.getSectionHeight()
+    }
+
   }
 }
 </script>
 
 <style scoped>
 
-.section-intro {
-  height: 200px;
+.text-about-content{
+  word-break: normal;
 }
 
-
+.text-about-content p{
+  font-size: 24px;
+  color: #1d2124;
+  font-style: oblique;
+}
 
 /* Background debugging color*/
 

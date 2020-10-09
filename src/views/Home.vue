@@ -2,8 +2,8 @@
   <div class = "home">
     <Header v-if="true" />
     <Introduction/>
-    <PortfolioNav/>
-    <Footer/>
+    <PortfolioNav v-if="true"/>
+    <Footer v-if="true"/>
   </div>
 </template>
 

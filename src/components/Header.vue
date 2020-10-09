@@ -19,11 +19,15 @@
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Portfolio
           </a>
+
+<!--          Drop Down Menu-->
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <router-link class="dropdown-item" to="/portfolio/engine">Game Engine (C++)</router-link>
-            <a class="dropdown-item" href="#">Space Invader (C#)</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">DX11 Built Scene</a>
+            <router-link class="dropdown-item" to="/portfolio/space-invaders">Space Invader (C#)</router-link>
+            <router-link class="dropdown-item" to="/portfolio/dx-scene">DX11 Scene (C++)</router-link>
+            <router-link class="dropdown-item" to="/portfolio/platformer">Simple Platformer (UE4)</router-link>
+            <router-link class="dropdown-item" to="/portfolio/audio-engine">Audio Engine (C++)</router-link>
+            <router-link class="dropdown-item" to="/portfolio/multiplayer">Multiplayer (Unity)</router-link>
           </div>
         </li>
 
