@@ -1,6 +1,10 @@
 <template>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <router-link class="navbar-brand" to="/">CS</router-link>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-secondary">
+
+    <router-link class="navbar-brand my-auto" to="/">
+      <img src="@/assets/img/cs-brand.png" width="30" height="30" loading="lazy" >
+    </router-link>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
