@@ -105,4 +105,17 @@ export default {
 
 <style scoped>
 
+.bg-img{
+  /* Center and scale the image nicely */
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 </style>

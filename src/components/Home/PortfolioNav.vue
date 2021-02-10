@@ -5,87 +5,74 @@
     <div class="pt-5 ">
 
 <!--      Portfolio-->
-      <h2>
-        PORTFOLIO
-      </h2>
 
       <div class="container">
-
-<!--        Row 1-->
-        <div class="row mt-5">
-
-<!--          GAME ENGINE-->
-          <div class="col-md">
-            <PortfolioCard
-                imgName = "engine.jpg"
-                title= "Game Engine"
-                text= "C++, OpenGL"
-                :width="cardWidth"
-                link= "/portfolio/engine"
-            />
-          </div>
-
-<!--          Space Invaders-->
-          <div class="col-md">
-            <PortfolioCard
-                imgName = "space_invader.jpg"
-                title= "Space Invaders"
-                text= "C#, Design Patterns"
-                :width="cardWidth"
-                link= "/portfolio/space-invaders"
-            />
-          </div>
-
-<!--          DX11-->
-          <div class="col-md">
-            <PortfolioCard
-                imgName = "dx11.jpg"
-                title= "Static Scene"
-                text= "C++, DirectX 11"
-                :width="cardWidth"
-                link= "/portfolio/dx-scene"
-            />
-          </div>
-
-<!--          SIMPLE PLATFORMER-->
-          <div class="col-md">
-            <PortfolioCard
-                imgName = "simple_platformer.jpg"
-                title= "Simple Platformer"
-                text= "Unreal Engine, Level design"
-                :width="cardWidth"
-                link= "/portfolio/platformer"
-            />
-          </div>
-
-<!--          AUDIO ENGINE-->
-          <div class="col-md">
-            <PortfolioCard
-                imgName = "audio.jpg"
-                title= "Audio Engine"
-                text= "C++, Multi Thread"
-                :width="cardWidth"
-                link= "/portfolio/audio-engine"
-            />
-          </div>
-
-<!--           FPS-->
-          <div class="col-md">
-            <PortfolioCard
-                imgName = "default.jpg"
-                title= "Multiplayer FPS"
-                text= "Unity"
-                :width="cardWidth"
-                link= "/portfolio/multiplayer"
-            />
-          </div>
-
-        </div> <!--end of row 1-->
-
+        <el-divider>
+          <h2>
+            <b>PORTFOLIO</b>
+          </h2>
+        </el-divider>
       </div>
 
 
+      <div class="container">
+
+        <el-row :gutter="20"> <!--Row starts-->
+
+<!--          GAME ENGINE-->
+          <PortfolioCard
+              imgName = "engine.jpg"
+              title= "Game Engine"
+              :tags=this.tagEngine
+              link= "/portfolio/engine"
+          />
+
+<!--          DX11-->
+          <PortfolioCard
+              imgName = "dx11.jpg"
+              title= "Static Scene"
+              :tags=this.tagDX
+              link= "/portfolio/dx-scene"
+          />
+
+<!--          Space Invaders-->
+          <PortfolioCard
+              imgName = "space_invader.jpg"
+              title= "Space Invaders"
+              :tags=this.tagSpaceInvader
+              link= "/portfolio/space-invaders"
+          />
+
+<!--          SIMPLE PLATFORMER-->
+          <PortfolioCard
+              imgName = "simple_platformer.jpg"
+              title= "Simple Platformer"
+              :tags=this.tagPlatformer
+              link= "/portfolio/platformer"
+          />
+
+<!--          Multiplayer-->
+          <PortfolioCard
+              imgName = "tb_multiplayer.jpg"
+              title= "Turn-based Multiplayer"
+              :tags=this.tagMulti
+              link= "/portfolio/multiplayer"
+          />
+
+<!--          AUDIO ENGINE-->
+          <PortfolioCard v-if="false"
+                         imgName = "audio.jpg"
+                         title= "Audio Engine"
+                         :tags=this.tagAudio
+                         link= "/portfolio/audio-engine"
+          />
+
+        </el-row> <!--End of row-->
+
+      </div>
+
     </div>
+
   </div>
 
 </template>
@@ -100,7 +87,30 @@ export default {
 
   data() {
     return {
-      cardWidth: this.getCardWidth()
+      cardWidth: this.getCardWidth(),
+
+      tagEngine:[
+        {key: 0, type: 'primary', text: 'C++'},
+        {key: 1, type: 'warning', text: 'OpenGL'}
+      ],
+      tagSpaceInvader:[
+        {key: 0, type: 'primary', text: 'C#'},
+        {key: 1, type: 'info', text: 'Design Patterns'}
+      ],
+      tagDX:[
+        {key: 0, type: 'primary', text: 'C++'},
+        {key: 1, type: 'warning', text: 'DirectX 11'}
+      ],
+      tagPlatformer:[
+        {key: 0, type: 'danger', text: 'Unreal Engine 4'}
+      ],
+      tagAudio:[
+        {key: 0, type: 'primary', text: 'C++'},
+        {key: 1, type: 'info', text: 'Multi Thread'}
+      ],
+      tagMulti:[
+        {key: 0, type: 'danger', text: 'Unity'}
+      ]
     }
   },
 
@@ -143,6 +153,20 @@ export default {
 <style scoped>
 
 /* Background debugging color*/
+
+.bg-purple-dark {
+  background: #99a9bf;
+}
+.bg-purple {
+  background: #d3dce6;
+}
+.bg-purple-light {
+  background: #e5e9f2;
+}
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
 
 .debug-aqua {
   background: aqua;

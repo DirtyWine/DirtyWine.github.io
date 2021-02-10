@@ -1,15 +1,43 @@
 <template>
 
-    <div class="card mx-auto my-2 card-style" :style="{width: this.width}">
-      <img v-bind:src ="require('@/assets/img/'+imgName)" class="card-img-top card-shadow mx-auto" :alt="imgName">
-      <div class="card-body">
-        <h5 class="card-title"><b>{{ title }}</b></h5>
-        <p class="card-text" style="font-style: italic">{{ text }}</p>
-        <div class="dropdown-divider"></div>
-        <router-link class="btn button" :to= "this.link" >See More</router-link>
-      </div>
+  <el-col :xs="24" :sm="12" :md="8">
+    <el-card :body-style="{ padding: '0px' }" class="my-3" shadow="hover">
+      <img v-bind:src ="require('@/assets/img/'+imgName)" class="image">
+      <div style="padding: 15px;">
+        <span>
+          <h5 class="card-title"><b>{{ title }}</b></h5>
+        </span>
+        <el-tag
+            v-for="tag in tags"
+            :key="tag.key"
+            :type="tag.type"
+            effect="light"
+            class="mx-2">
+          {{ tag.text }}
+        </el-tag>
+        <div class="bottom clearfix">
 
-    </div>
+          <el-button type="text" style="float: right" icon="el-icon-caret-right">
+            <router-link :to= "this.link" style="font-size: 17px">See More</router-link>
+          </el-button>
+        </div>
+      </div>
+    </el-card>
+  </el-col>
+
+<!--  <el-card :body-style="{ padding: '0px' ,width: this.width}">-->
+<!--        <div class="el-card  my-2 " :style="{}">-->
+<!--          <img v-bind:src ="require('@/assets/img/'+imgName)" class="card-img-top card-shadow mx-auto" :alt="imgName">-->
+<!--          <div class="card-body">-->
+<!--            <h5 class="card-title"><b>{{ title }}</b></h5>-->
+<!--            <p class="card-text" style="font-style: italic">{{ text }}</p>-->
+<!--            <div class="dropdown-divider"></div>-->
+<!--            <router-link class="btn button" :to= "this.link" >See More</router-link>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--  </el-card>-->
+
+
 
 </template>
 
@@ -20,8 +48,7 @@ export default {
   props:{
     imgName: String,
     title: String,
-    text: String,
-    width: String,
+    tags: Array,
     link: String
   },
 
@@ -32,43 +59,15 @@ export default {
 
 <style scoped>
 
-
-.card-shadow:hover{
-  box-shadow: 0 -1px 4px 1px #909090;
-}
-
-.text-left{
-  text-align: left;
-}
-
-.text-right{
-  text-align: right;
-}
-
-.fix-left{
-  float: left;
-}
-
-.fix-right{
-  float: right;
-}
-
-.card-style{
-  border: none;
-  box-shadow: 0 1px 3px 2px darkgray;
-}
-
-.button{
+.image {
   width: 100%;
-  color: #007bff;
+  display: block;
 }
-.button:hover{
-  background: #7abaff;
-  color: white;
+
+.el-tag{
+  font-size: 13px;
 }
-.button:active{
-  background: #00ffff;
-}
+
 
 /* Background debugging color*/
 

@@ -10,7 +10,8 @@
         <h1>DirectX11 Scene</h1>
 
         <!--        Video-->
-        <div class="mt-3 mx-auto">
+        <div class="bg-img mt-3" :style="{backgroundImage: `url(${bgImg})`, filter: 'blur(5px)', height: this.iframeHeight+'px'}"></div>
+        <div class="mt-4 mx-auto">
           <iframe
               :width = "iframeWidth"
               :height = "iframeHeight"
@@ -55,7 +56,8 @@ export default {
   data() {
     return {
       iframeWidth: 0,
-      iframeHeight: 0
+      iframeHeight: 0,
+      bgImg: require('@/assets/img/dx11.jpg')
     }
   },
 
@@ -105,5 +107,18 @@ export default {
 </script>
 
 <style scoped>
+
+.bg-img{
+  /* Center and scale the image nicely */
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 </style>

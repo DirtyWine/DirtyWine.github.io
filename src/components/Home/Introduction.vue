@@ -32,13 +32,14 @@
         <div class="col-lg text-about-content">
           <p>
             I'm a graduate student at DePaul University, major in game programming. I will graduate in November 2021.
-            My skill set includes C++ and C#.
           </p>
           <p>
-            I have experience of graphic and shader programming from course project.
-            I have built graphic systems with both DX11 and OpenGL.
+            My skill set includes C++, C#, UE4 and Unity.
+            I have experience of graphic and shader programming from course project,
+            and I have built graphic systems with both DX11 and OpenGL.
           </p>
           <p>
+            I have programmed a game engine with various subsystems, including skinning and skeleton animation.
             I also have developed a 2D game, Space Invaders, which have used more than 10 design patterns.
           </p>
         </div>
@@ -90,13 +91,16 @@ export default {
 <style scoped>
 
 .text-about-content{
+  padding: 10px 16px;
   word-break: normal;
+  text-align: left;
 }
 
 .text-about-content p{
+  font-family: "Helvetica Neue";
   font-size: 24px;
   color: #1d2124;
-  font-style: oblique;
+  font-style: normal;
 }
 
 /* Background debugging color*/

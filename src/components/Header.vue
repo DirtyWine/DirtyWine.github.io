@@ -25,8 +25,8 @@
         <el-menu-item index="/portfolio/space-invaders"> Space Invader (C#) </el-menu-item>
         <el-menu-item index="/portfolio/dx-scene"> DX11 Scene (C++) </el-menu-item>
         <el-menu-item index="/portfolio/platformer"> Simple Platformer (UE4) </el-menu-item>
-        <el-menu-item index="/portfolio/audio-engine"> Audio Engine (C++) </el-menu-item>
-        <el-menu-item index="/portfolio/multiplayer"> Multiplayer (Unity) </el-menu-item>
+        <el-menu-item index="/portfolio/multiplayer"> Turn-based Multiplayer (Unity) </el-menu-item>
+        <el-menu-item v-if="false" index="/portfolio/audio-engine"> Audio Engine (C++) </el-menu-item>
       </el-submenu>
 
     </el-menu>

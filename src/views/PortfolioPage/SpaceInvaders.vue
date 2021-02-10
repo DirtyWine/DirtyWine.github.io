@@ -1,16 +1,20 @@
 <template>
 
   <div class="space-invaders">
+
+    <div class="bg-color"></div>
+
     <Header/>
 
     <div class="pt-5">
       <div class="container pt-5">
 
         <!--        Title-->
-        <h1>Space Invaders</h1>
+        <h2 class="font-title"> <b>Space Invaders</b> </h2>
 
         <!--        Video-->
-        <div class="mt-3 mx-auto">
+        <div class="bg-img mt-3" :style="{backgroundImage: `url(${bgImg})`, filter: 'blur(5px)', height: this.iframeHeight+'px'}"></div>
+        <div class="mt-4 mx-auto">
           <iframe
               :width = "iframeWidth"
               :height = "iframeHeight"
@@ -22,9 +26,9 @@
         </div>
 
         <!--        OverView-->
-
+        <el-divider></el-divider>
         <div class="mt-3 mx-auto">
-          <h1 style="text-align: left">Overview</h1>
+          <h1 style="text-align: left" class="font-title">Overview</h1>
           <div class="container px-3" style="text-align: left">
             ...
           </div>
@@ -32,7 +36,7 @@
         <!--        Details-->
 
         <div class="mt-3 mx-auto">
-          <h1 style="text-align: left">Details</h1>
+          <h1 style="text-align: left" class="font-title">Details</h1>
           <div class="container px-3" style="text-align: left">
             <p>GitHub: <a href="">...</a></p>
           </div>
@@ -55,7 +59,8 @@ export default {
   data() {
     return {
       iframeWidth: 0,
-      iframeHeight: 0
+      iframeHeight: 0,
+      bgImg: require('@/assets/img/space_invader.jpg')
     }
   },
 
@@ -106,4 +111,36 @@ export default {
 
 <style scoped>
 
+.bg-img{
+  /* Center and scale the image nicely */
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-color{
+  /* Center and scale the image nicely */
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -2;
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  background-color: black;
+}
+
+.font-title{
+  color: #55f554;
+}
+.font-content{
+
+}
 </style>

@@ -9,7 +9,8 @@
         <h1>Game Engine</h1>
 
 <!--        Video-->
-        <div class="mt-3 mx-auto">
+        <div class="bg-img mt-2" :style="{backgroundImage: `url(${bgImg})`, filter: 'blur(3px)', height: this.iframeHeight+'px'}"></div>
+        <div class="mt-4 mx-auto">
           <iframe
               :width = "iframeWidth"
               :height = "iframeHeight"
@@ -21,6 +22,8 @@
         </div>
 
 <!--        OverView-->
+
+        <el-divider></el-divider>
 
         <div class="mt-3 mx-auto">
           <h3 style="text-align: left"> <b>Overview</b> </h3>
@@ -54,7 +57,8 @@ export default {
   data() {
     return {
       iframeWidth: 0,
-      iframeHeight: 0
+      iframeHeight: 0,
+      bgImg: require('@/assets/img/engine_bg.jpg')
     }
   },
 
@@ -104,6 +108,19 @@ export default {
 </script>
 
 <style scoped>
+
+.bg-img{
+  /* Center and scale the image nicely */
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 /* Background debugging color*/
 

@@ -1,16 +1,19 @@
 <template>
 
-  <div class="simple-platformer">
+  <div class="simple-platformer" >
+
     <Header/>
 
-    <div class="pt-5">
+    <div class="pt-5" >
       <div class="container pt-5">
 
         <!--        Title-->
-        <h1>Simple Platformer</h1>
+        <h2> <b>Simple Platformer</b> </h2>
+
 
         <!--        Video-->
-        <div class="mt-3 mx-auto">
+        <div class="bg-img mt-3" :style="{backgroundImage: `url(${bgImg})`, filter: 'blur(8px)', height: this.iframeHeight+'px'}"></div>
+        <div class="mt-4 mx-auto">
           <iframe
               :width = "iframeWidth"
               :height = "iframeHeight"
@@ -21,7 +24,10 @@
           </iframe>
         </div>
 
+
         <!--        OverView-->
+
+        <el-divider></el-divider>
 
         <div class="mt-3 mx-auto">
           <h3 style="text-align: left"> <b>Overview</b> </h3>
@@ -57,7 +63,8 @@ export default {
   data() {
     return {
       iframeWidth: 0,
-      iframeHeight: 0
+      iframeHeight: 0,
+      bgImg: require('@/assets/img/simple_platformer.jpg')
     }
   },
 
@@ -107,5 +114,22 @@ export default {
 </script>
 
 <style scoped>
+
+.debug-dark {
+  background: #2c3e50;
+}
+
+.bg-img{
+  /* Center and scale the image nicely */
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 </style>
