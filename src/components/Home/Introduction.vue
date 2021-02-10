@@ -24,7 +24,7 @@
           <div class="mx-5">
             <h3>About <span style="color: hotpink">me</span></h3>
 <!--            Avatar-->
-            <el-avatar :size="80" :src = "require('@/assets/img/avatar.jpg')" :fit="scale-down"/>
+            <el-avatar :size="80" :src = "require('@/assets/img/avatar.jpg')" />
           </div>
         </div>
 
@@ -59,10 +59,13 @@ export default {
 
   data() {
     return {
-      sectionHeight: this.getSectionHeight()
+      sectionHeight: 0
     }
   },
 
+  created() {
+    this.sectionHeight = this.getSectionHeight();
+  },
   methods: {
     getSectionHeight: function ()
     {
