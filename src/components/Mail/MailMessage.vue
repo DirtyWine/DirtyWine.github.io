@@ -2,11 +2,18 @@
   <el-card shadow="hover" style="margin-bottom: 5px">
 
     <!--      Left-->
-    <el-row :gutter="5" v-if="onLeft">
+    <el-row :gutter="20" v-if="onLeft">
 
-      <el-col :xs="24" :sm="4" :md="3" :lg="2" style="margin-bottom: 5px">
-          <el-avatar  v-if="isSmallWidth" class="left" :size="65" :src = "require('@/assets/img/avatar.jpg')"/>
-          <el-avatar v-if="!isSmallWidth" :size="65" :src = "require('@/assets/img/avatar.jpg')"/>
+      <el-col v-if="!isSmallWidth"
+              :xs="24" :sm="4" :md="3" :lg="2"
+              class="border-right">
+          <el-avatar :size="65" :src = "require('@/assets/img/avatar.jpg')"/>
+      </el-col>
+
+      <el-col v-if="isSmallWidth"
+              :xs="24" :sm="4" :md="3" :lg="2"
+              style="margin-bottom: 8px">
+        <el-avatar class="left" :size="65" :src = "require('@/assets/img/avatar.jpg')"/>
       </el-col>
 
       <el-col :xs="24" :sm="19" :md="18" :lg="20">
@@ -17,10 +24,10 @@
 
     <!--      Right-->
 <!--    when windows is small size-->
-    <el-row :gutter="5" v-if="!onLeft && isSmallWidth">
+    <el-row :gutter="20" v-if="!onLeft && isSmallWidth">
 
-      <el-col :xs="24" :sm="4" :md="3" :lg="2" style="margin-bottom: 5px">
-        <el-avatar   class="right" :size="65" :src = "require('@/assets/img/avatar2.jpg')"/>
+      <el-col :xs="24" :sm="4" :md="3" :lg="2" style="margin-bottom: 8px">
+        <el-avatar class="right border-left" :size="65" :src = "require('@/assets/img/avatar2.jpg')"/>
       </el-col>
 
       <el-col :xs="24" :sm="20" :md="21" :lg="22">
@@ -30,14 +37,14 @@
     </el-row>
 
 <!--    when windows is big size-->
-    <el-row :gutter="5" v-if="!onLeft && !isSmallWidth" type="flex" justify="end">
+    <el-row :gutter="20" v-if="!onLeft && !isSmallWidth" type="flex" justify="end">
 
       <el-col :xs="24" :sm="19" :md="18" :lg="20">
         <p class="text-content-jj">{{ content }}</p>
       </el-col>
 
-      <el-col :xs="24" :sm="4" :md="3" :lg="2" style="margin-bottom: 5px">
-        <el-avatar  :size="65" :src = "require('@/assets/img/avatar2.jpg')"/>
+      <el-col :xs="24" :sm="4" :md="3" :lg="2">
+        <el-avatar class="border-left" :size="65" :src = "require('@/assets/img/avatar2.jpg')"/>
       </el-col>
 
     </el-row>

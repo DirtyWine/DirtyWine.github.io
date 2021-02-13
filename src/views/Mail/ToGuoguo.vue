@@ -2,41 +2,81 @@
 
   <div class="container">
 
-    <div v-if="lock">
-      <el-form :model="form" class="mt-lg-5">
-        <el-form-item label="Password">
-          <el-input v-model="form.password" placeholder="8-number pin"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="onSubmit">GO</el-button>
-        </el-form-item>
-      </el-form>
-    </div>
+<!--    <el-button @click="lock = !lock"> Lock </el-button>-->
 
-    <div v-if="!lock">
-      <h3 style="text-align: left; font-style: italic; font-family: 楷体" class="my-5">To 过过:</h3>
-      <el-divider></el-divider>
+    <!--    Content-->
+    <transition name="el-zoom-in-top">
 
-      <el-timeline>
+      <div v-show="!lock">
 
-        <el-timeline-item
-            v-for="mail in mails"
-            :timestamp="mail.time"
-            :key="mail.time"
-            placement="top">
+        <el-row type="flex" justify="end">
+          <el-col :span="12" align="right">
 
-          <MailMessage
-              v-for="(msg, index) in mail.messages"
-              :key="index"
-              :on-left="msg.onLeft"
-              :is-small-width="isSmallWidth"
-              :content="msg.content">
+            <el-select v-model="timeReverse" placeholder="请选择" class="mt-5">
+              <el-option
+                  v-for="item in options"
+                  :key="item.label"
+                  :label="item.label"
+                  :value="item.value">
+              </el-option>
+            </el-select>
 
-          </MailMessage>
+          </el-col>
+        </el-row>
 
-        </el-timeline-item>
-        
-      </el-timeline>
+
+        <h3 style="text-align: left; font-style: italic; font-family: 楷体" class="my-1">To 过过:</h3>
+
+        <el-divider></el-divider>
+
+        <el-timeline :reverse="this.timeReverse">
+
+          <el-timeline-item
+              v-for="mail in mails"
+              :timestamp="mail.time"
+              :key="mail.time"
+              placement="top">
+
+            <MailMessage
+                v-for="(msg, index) in mail.messages"
+                :key="index"
+                :on-left="msg.onLeft"
+                :is-small-width="isSmallWidth"
+                :content="msg.content">
+
+            </MailMessage>
+
+          </el-timeline-item>
+
+        </el-timeline>
+      </div>
+
+    </transition>
+
+<!--    Login-->
+    <div class="container mt-5" v-if="lock">
+      <el-row>
+        <el-col :span="12" :offset="6">
+          <el-image
+              :src="require('@/assets/img/mail-logo.jpg')">
+          </el-image>
+        </el-col>
+      </el-row>
+
+      <el-row>
+        <el-col :span="16" :offset="4">
+
+          <el-form :model="form" :inline="true">
+            <el-form-item label="Password" >
+              <el-input v-model="form.password" placeholder="8-number pin" ></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="onSubmit" plain>Open</el-button>
+            </el-form-item>
+          </el-form>
+
+        </el-col>
+      </el-row>
     </div>
 
   </div>
@@ -55,11 +95,18 @@ export default {
     return{
       lock: true,
       isSmallWidth: false,
+      timeReverse: true,
+
+      options:[
+        {value: false, label:"时间顺序"},
+        {value: true, label:"时间倒序"}
+      ],
+
       form:{
         password: ''
       },
       mails: [
-          // 2/12
+        // ----------------------------------------- 2/12
         {
           time: "2021 / 02 / 12",
           messages: [
@@ -98,10 +145,13 @@ export default {
             {
               onLeft: false,
               content: "居然无视我，太无礼了！哼，あばよ！"
-            },
+            }
           ]
         },
-          //
+        // ----------------------------------------- 2/13
+        {
+
+        },
       ]
     }
   },
@@ -127,6 +177,17 @@ export default {
 
       if (psw == this.form.password){
         this.lock = false;
+        this.$notify({
+          title: "Welcome back, 过过！",
+          message: "你猜我有没有更新呢",
+          iconClass: "el-icon-loading"
+        })
+      }
+      else{
+        this.$message.error({
+          message: "Wrong Password!",
+          duration: 1500
+        });
       }
     },
 
