@@ -9,6 +9,8 @@ import SimplePlatformer from "@/views/PortfolioPage/SimplePlatformer";
 import AudioEngine from "@/views/PortfolioPage/AudioEngine";
 import Multiplayer from "@/views/PortfolioPage/Multiplayer";
 
+import ToGuoguo from "@/views/Mail/ToGuoguo";
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -25,6 +27,14 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
+
+  {
+    path: '/to-guoguo',
+    name: 'ToGuoguo',
+    component: ToGuoguo
+  },
+
+
   {
     path: '/portfolio/engine',
     name: 'Game Engine',
