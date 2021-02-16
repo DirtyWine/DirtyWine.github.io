@@ -6,36 +6,43 @@
       <div class="container pt-5">
 
         <!--        Title-->
-        <h1>Multiplayer</h1>
+        <h1 class="portfolio-title-text">Turn-based Multiplayer</h1>
 
         <!--        Video-->
-        <div class="mt-3 mx-auto">
-          ...
-<!--          <iframe-->
-<!--              width="747"-->
-<!--              height="420"-->
-<!--              src="https://www.youtube.com/embed/r6L8fiAbk78" frameborder="0"-->
-<!--              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"-->
-<!--              allowfullscreen = "true">-->
-<!--          </iframe>-->
+        <div class="mt-4 mx-auto">
+          <iframe
+              :width = "iframeWidth"
+              :height = "iframeHeight"
+              src="https://www.youtube.com/embed/_m0Q7JFEUI8"
+              frameborder="0"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen = "true">
+          </iframe>
         </div>
 
         <!--        OverView-->
 
-        <div class="mt-3 mx-auto">
-          <h1 style="text-align: left">Overview</h1>
-          <div class="container px-3" style="text-align: left">
-            ...
+        <el-divider></el-divider>
+
+
+        <el-card shadow="hover">
+          <div slot="header">
+            <h4 style="text-align: left"> <b>Overview</b> </h4>
           </div>
-        </div>
+          <div class="portfolio-content-text">
+            This project is cooperated with my roommate, <i>Wenda Li</i>.
+            <br><br>
+            The game is developed with Unity, and the multiplayer system is implemented with PUN.
+          </div>
+        </el-card>
         <!--        Details-->
 
-        <div class="mt-3 mx-auto">
-          <h1 style="text-align: left">Details</h1>
-          <div class="container px-3" style="text-align: left">
-            <p>GitHub: <a href="">...</a></p>
-          </div>
-        </div>
+<!--        <div class="mt-3 mx-auto">-->
+<!--          <h1 style="text-align: left">Details</h1>-->
+<!--          <div class="container px-3" style="text-align: left">-->
+<!--            <p>GitHub: <a href="">...</a></p>-->
+<!--          </div>-->
+<!--        </div>-->
 
       </div>
     </div>
@@ -47,9 +54,11 @@
 
 <script>
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
 export default {
   name: "Multiplayer",
-  components: {Header},
+  components: {Header, Footer},
 
   data() {
     return {
@@ -104,6 +113,17 @@ export default {
 </script>
 
 <style scoped>
+
+.portfolio-content-text{
+  text-align: left;
+  font-size: 18px;
+  word-break: break-word;
+  font-family: Arial;
+}
+
+.portfolio-title-text{
+  font-family: "Comic Sans MS"
+}
 
 .bg-img{
   /* Center and scale the image nicely */

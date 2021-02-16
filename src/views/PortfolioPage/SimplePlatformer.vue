@@ -8,11 +8,11 @@
       <div class="container pt-5">
 
         <!--        Title-->
-        <h2> <b>Simple Platformer</b> </h2>
+        <h2 class="portfolio-title-text"> <b>Simple Platformer</b> </h2>
 
 
         <!--        Video-->
-        <div class="bg-img mt-3" :style="{backgroundImage: `url(${bgImg})`, filter: 'blur(8px)', height: this.iframeHeight+'px'}"></div>
+<!--        <div class="bg-img mt-3" :style="{backgroundImage: `url(${bgImg})`, filter: 'blur(8px)', height: this.iframeHeight+'px'}"></div>-->
         <div class="mt-4 mx-auto">
           <iframe
               :width = "iframeWidth"
@@ -29,22 +29,34 @@
 
         <el-divider></el-divider>
 
-        <div class="mt-3 mx-auto">
-          <h3 style="text-align: left"> <b>Overview</b> </h3>
-          <div class="container px-3" style="text-align: left">
-            ...
+        <el-card shadow="hover" class="my-2">
+          <div slot="header">
+            <h4 style="text-align: left"> <b>Overview</b> </h4>
           </div>
-        </div>
+          <div class="portfolio-content-text">
+            This video is not for commercial use, just for demo.
+            <br><br>
+            Background Music used in demo:
+            <br><br>
+            > Assassin's Creed IV Black Flag Main Theme - <i>Brian Tyler</i>
+            <br>
+            > Life at Sea - <i>Assassin's Creed Italia</i>
+            <br>
+            > Here's a Health to the Company - <i>Sean Dagher / Richard Irwin / Nelson Cater / Nils Brown / Michiel Schrey / Charlotte Cumberbirch / David Gossage</i>
+          </div>
+        </el-card>
         <!--        Details-->
 
-        <div class="mt-3 mx-auto">
-          <h1 style="text-align: left">Details</h1>
-          <div class="container px-3" style="text-align: left">
+        <el-card shadow="hover" class="my-2">
+          <div slot="header">
+            <h4 style="text-align: left"> <b>Details</b> </h4>
+          </div>
+          <div style="text-align: left">
 
-<!--            GitHub Link-->
+            <!--            GitHub Link-->
             <p>GitHub: <a href="https://github.com/DirtyWine/SimplePlatformer">https://github.com/DirtyWine/SimplePlatformer</a></p>
           </div>
-        </div>
+        </el-card>
 
       </div>
     </div>
@@ -56,9 +68,11 @@
 
 <script>
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
 export default {
   name: "SimplePlatformer",
-  components: {Header},
+  components: {Header, Footer},
 
   data() {
     return {
@@ -114,6 +128,17 @@ export default {
 </script>
 
 <style scoped>
+
+.portfolio-content-text{
+  text-align: left;
+  font-size: 18px;
+  word-break: break-word;
+  font-family: Arial;
+}
+
+.portfolio-title-text{
+  font-family: "Comic Sans MS"
+}
 
 .debug-dark {
   background: #2c3e50;

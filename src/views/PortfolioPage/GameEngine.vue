@@ -6,15 +6,15 @@
       <div class="container pt-5">
 
 <!--        Title-->
-        <h1>Game Engine</h1>
+        <h1 class="portfolio-title-text">Game Engine</h1>
 
 <!--        Video-->
-        <div class="bg-img mt-2" :style="{backgroundImage: `url(${bgImg})`, filter: 'blur(3px)', height: this.iframeHeight+'px'}"></div>
+<!--        <div class="bg-img mt-2" :style="{backgroundImage: `url(${bgImg})`, filter: 'blur(3px)', height: this.iframeHeight+'px'}"></div>-->
         <div class="mt-4 mx-auto">
           <iframe
               :width = "iframeWidth"
               :height = "iframeHeight"
-              src="https://www.youtube.com/embed/OyDS9J2xOHY"
+              src="https://www.youtube.com/embed/I0hwzKMZh9Y"
               frameborder="0"
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen = "true">
@@ -25,20 +25,21 @@
 
         <el-divider></el-divider>
 
-        <div class="mt-3 mx-auto">
-          <h3 style="text-align: left"> <b>Overview</b> </h3>
-          <div class="container px-3" style="text-align: left">
-            ...
-          </div>
-        </div>
-<!--        Details-->
 
-        <div class="mt-3 mx-auto ">
-          <h1 style="text-align: left">Details</h1>
-          <div class="container px-3" style="text-align: left">
-            <p>GitHub: <a href="">...</a></p>
+        <el-card shadow="hover">
+          <div slot="header">
+            <h4 style="text-align: left"> <b>Overview</b> </h4>
           </div>
-        </div>
+          <div class="portfolio-content-text">
+            This is a game engine I program from scratch, which has included my own math library, file system, converters, graphics system based on OpenGL,
+            camera system, font system and skeleton animation system with skin.
+            <br><br>
+            The engine supports both 2D and 3D mode.
+            <br><br>
+            Models and animation data are converted from FBX to my custom file format for engine with the converter I programed.
+          </div>
+        </el-card>
+<!--        Details-->
 
       </div>
     </div>
@@ -50,6 +51,7 @@
 <script>
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
 export default {
   name: "GameEngine",
   components: {Footer, Header},
@@ -108,6 +110,19 @@ export default {
 </script>
 
 <style scoped>
+
+.portfolio-content-text{
+  text-align: left;
+  font-size: 18px;
+  word-break: break-word;
+  font-family: Arial;
+}
+
+.portfolio-title-text{
+  font-family: "Comic Sans MS"
+}
+
+
 
 .bg-img{
   /* Center and scale the image nicely */

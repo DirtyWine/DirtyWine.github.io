@@ -24,19 +24,19 @@
           <div class="mx-5">
             <h3>About <span style="color: hotpink">me</span></h3>
 <!--            Avatar-->
-            <el-avatar :size="80" :src = "require('@/assets/img/avatar.jpg')" />
+            <el-avatar :size="80" :src = "require('@/assets/img/cs-brand.png')" />
           </div>
         </div>
 
 <!--        Content-->
         <div class="col-lg text-about-content">
           <p>
-            I'm a graduate student at DePaul University, major in game programming. I will graduate in November 2021.
+            I'm a graduate student at DePaul University, major in game programming. I will graduate in 2021.
           </p>
           <p>
             My skill set includes C++, C#, UE4 and Unity.
-            I have experience of graphic and shader programming from course project,
-            and I have built graphic systems with both DX11 and OpenGL.
+            I have experience of graphic and shader programming from course projects,
+            and have built graphic systems with both DX11 and OpenGL.
           </p>
           <p>
             I have programmed a game engine with various subsystems, including skinning and skeleton animation.

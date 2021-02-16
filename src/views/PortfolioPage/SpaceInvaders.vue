@@ -10,7 +10,7 @@
       <div class="container pt-5">
 
         <!--        Title-->
-        <h2 class="font-title"> <b>Space Invaders</b> </h2>
+        <h2 class="font-color portfolio-title-text"> <b>Space Invaders</b> </h2>
 
         <!--        Video-->
         <div class="bg-img mt-3" :style="{backgroundImage: `url(${bgImg})`, filter: 'blur(5px)', height: this.iframeHeight+'px'}"></div>
@@ -18,7 +18,7 @@
           <iframe
               :width = "iframeWidth"
               :height = "iframeHeight"
-              src="https://www.youtube.com/embed/i9j0MZuS9LY"
+              src="https://www.youtube.com/embed/L-CDR3N6e6w"
               frameborder="0"
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen = "true">
@@ -26,35 +26,48 @@
         </div>
 
         <!--        OverView-->
+
         <el-divider></el-divider>
+
         <div class="mt-3 mx-auto">
-          <h1 style="text-align: left" class="font-title">Overview</h1>
-          <div class="container px-3" style="text-align: left">
-            ...
+          <h4 style="text-align: left" class="font-color"> <b>Overview</b> </h4>
+          <div class="px-3 portfolio-content-text">
+            In this project, I reproduced the <i>Space Invaders</i>, a 1978 arcade game created by <i>Tomohiro Nishikado</i>.
+            <br><br>
+            This project is implemented with C# and Azul Engine, and is designed based on design patterns.
+            To reproduce this game, I have developed a series of components to implement various functions, which include
+            basic graphic components, collision system, timer, animation events, game objects, scene,
+            and etc. One or more design patterns was applied to each of the components, such as
+            the collision system has used visitor pattern and observer pattern,
+            different types of bombs are implemented with strategy pattern, and state pattern is used for switching game scenes.
+            <br><br>
+            More details will be updated in this page.
           </div>
         </div>
         <!--        Details-->
 
-        <div class="mt-3 mx-auto">
-          <h1 style="text-align: left" class="font-title">Details</h1>
-          <div class="container px-3" style="text-align: left">
-            <p>GitHub: <a href="">...</a></p>
-          </div>
-        </div>
+<!--        <div class="mt-3 mx-auto">-->
+<!--          <h1 style="text-align: left" class="font-title">Details</h1>-->
+<!--          <div class="container px-3" style="text-align: left">-->
+<!--            <p>GitHub: <a href="">...</a></p>-->
+<!--          </div>-->
+<!--        </div>-->
 
       </div>
     </div>
 
     <Footer/>
+
   </div>
 
 </template>
 
 <script>
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 export default {
   name: "SpaceInvaders",
-  components: {Header},
+  components: {Header, Footer},
 
   data() {
     return {
@@ -111,6 +124,19 @@ export default {
 
 <style scoped>
 
+.portfolio-content-text{
+  text-align: left;
+  font-size: 18px;
+  word-break: break-word;
+  font-family: Arial;
+  color: darkgray;
+}
+
+.portfolio-title-text{
+  font-family: "Comic Sans MS"
+}
+
+
 .bg-img{
   /* Center and scale the image nicely */
   position: absolute;
@@ -134,10 +160,10 @@ export default {
   width: 100%;
   height: 100%;
 
-  background-color: black;
+  background-color: #0d0d0d;
 }
 
-.font-title{
+.font-color{
   color: #55f554;
 }
 .font-content{

@@ -7,15 +7,15 @@
       <div class="container pt-5">
 
         <!--        Title-->
-        <h1>DirectX11 Scene</h1>
+        <h1 class="portfolio-title-text">DirectX11 Graphics System</h1>
 
         <!--        Video-->
-        <div class="bg-img mt-3" :style="{backgroundImage: `url(${bgImg})`, filter: 'blur(5px)', height: this.iframeHeight+'px'}"></div>
+<!--        <div class="bg-img mt-3" :style="{backgroundImage: `url(${bgImg})`, filter: 'blur(5px)', height: this.iframeHeight+'px'}"></div>-->
         <div class="mt-4 mx-auto">
           <iframe
               :width = "iframeWidth"
               :height = "iframeHeight"
-              src="https://www.youtube.com/embed/Llcmy0IJ_ck"
+              src="https://www.youtube.com/embed/hBwFjNDDvOU"
               frameborder="0"
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen = "true">
@@ -24,20 +24,30 @@
 
         <!--        OverView-->
 
-        <div class="mt-3 mx-auto">
-          <h1 style="text-align: left">Overview</h1>
-          <div class="container px-3" style="text-align: left">
-            ...
-          </div>
-        </div>
-        <!--        Details-->
+        <el-divider></el-divider>
 
-        <div class="mt-3 mx-auto">
-          <h1 style="text-align: left">Details</h1>
-          <div class="container px-3" style="text-align: left">
-            <p>GitHub: <a href="">...</a></p>
+
+        <el-card shadow="hover">
+          <div slot="header">
+            <h4 style="text-align: left"> <b>Overview</b> </h4>
           </div>
-        </div>
+          <div class="portfolio-content-text">
+            The scene is built by the graphics system I programmed based on DirectX 11.
+            <br><br>
+            As demoed in the video, the system includes sky box, terrain generated from height map, lighting effect, fog effect and transparent effect.
+            <br><br>
+            Models are converted from FBX to custom file format for the system to import.
+          </div>
+        </el-card>
+
+<!--        &lt;!&ndash;        Details&ndash;&gt;-->
+
+<!--        <div class="mt-3 mx-auto">-->
+<!--          <h1 style="text-align: left">Details</h1>-->
+<!--          <div class="container px-3" style="text-align: left">-->
+<!--            <p>GitHub: <a href="">...</a></p>-->
+<!--          </div>-->
+<!--        </div>-->
 
       </div>
     </div>
@@ -49,9 +59,11 @@
 
 <script>
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
 export default {
   name: "DXScene",
-  components: {Header},
+  components: {Header, Footer},
 
   data() {
     return {
@@ -107,6 +119,17 @@ export default {
 </script>
 
 <style scoped>
+
+.portfolio-content-text{
+  text-align: left;
+  font-size: 18px;
+  word-break: break-word;
+  font-family: Arial;
+}
+
+.portfolio-title-text{
+  font-family: "Comic Sans MS"
+}
 
 .bg-img{
   /* Center and scale the image nicely */

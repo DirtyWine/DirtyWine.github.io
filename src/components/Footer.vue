@@ -1,7 +1,8 @@
 <template>
   <div class="footer">
     <div class="container my-5">
-      <h4>@jshen21</h4>
+      <el-divider></el-divider>
+      <h5>E-mail: imshjiahao@163.com</h5>
     </div>
 
   </div>
