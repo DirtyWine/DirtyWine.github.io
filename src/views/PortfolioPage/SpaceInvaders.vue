@@ -14,16 +14,37 @@
 
         <!--        Video-->
         <div class="bg-img mt-3" :style="{backgroundImage: `url(${bgImg})`, filter: 'blur(5px)', height: this.iframeHeight+'px'}"></div>
-        <div class="mt-4 mx-auto">
-          <iframe
-              :width = "iframeWidth"
-              :height = "iframeHeight"
-              src="https://www.youtube.com/embed/L-CDR3N6e6w"
-              frameborder="0"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen = "true">
-          </iframe>
-        </div>
+
+        <el-tabs  v-model="activeVideo" type="card">
+
+          <el-tab-pane label="腾讯视频" name="WeTV">
+            <div class="mt-4 mx-auto">
+              <iframe
+                  :width = "iframeWidth"
+                  :height = "iframeHeight"
+                  src="https://v.qq.com/txp/iframe/player.html?vid=l3230bkolbl"
+                  frameborder="0"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen = "true">
+              </iframe>
+            </div>
+          </el-tab-pane>
+
+          <el-tab-pane label="YouTube" name="YouTube">
+            <div class="mt-4 mx-auto">
+              <iframe
+                  :width = "iframeWidth"
+                  :height = "iframeHeight"
+                  src="https://www.youtube.com/embed/L-CDR3N6e6w"
+                  frameborder="0"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen = "true">
+              </iframe>
+            </div>
+          </el-tab-pane>
+        </el-tabs>
+
+
 
         <!--        OverView-->
 
@@ -71,6 +92,7 @@ export default {
 
   data() {
     return {
+      activeVideo: 'WeTV',
       iframeWidth: 0,
       iframeHeight: 0,
       bgImg: require('@/assets/img/space_invader.jpg')
@@ -122,7 +144,15 @@ export default {
 }
 </script>
 
+<style>
+.el-tabs__item {
+  color: gray;
+}
+
+</style>
+
 <style scoped>
+
 
 .portfolio-content-text{
   text-align: left;

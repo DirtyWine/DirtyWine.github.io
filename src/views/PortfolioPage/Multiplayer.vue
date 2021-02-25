@@ -9,16 +9,41 @@
         <h1 class="portfolio-title-text">Turn-based Multiplayer</h1>
 
         <!--        Video-->
-        <div class="mt-4 mx-auto">
-          <iframe
-              :width = "iframeWidth"
-              :height = "iframeHeight"
-              src="https://www.youtube.com/embed/_m0Q7JFEUI8"
-              frameborder="0"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen = "true">
-          </iframe>
-        </div>
+
+        <el-tabs class="mt-4 mx-auto" v-model="activeVideo" type="card">
+
+          <el-tab-pane label="腾讯视频" name="WeTV">
+
+            <div class="mt-4 mx-auto">
+              <iframe
+                  :width = "iframeWidth"
+                  :height = "iframeHeight"
+                  src="https://v.qq.com/txp/iframe/player.html?vid=o3230eppd4y"
+                  frameborder="0"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen = "true">
+              </iframe>
+            </div>
+
+          </el-tab-pane>
+
+          <el-tab-pane label="YouTube" name="YouTube">
+
+            <div class="mt-4 mx-auto">
+              <iframe
+                  :width = "iframeWidth"
+                  :height = "iframeHeight"
+                  src="https://www.youtube.com/embed/_m0Q7JFEUI8"
+                  frameborder="0"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen = "true">
+              </iframe>
+            </div>
+
+          </el-tab-pane>
+        </el-tabs>
+
+
 
         <!--        OverView-->
 
@@ -62,6 +87,7 @@ export default {
 
   data() {
     return {
+      activeVideo: 'WeTV',
       iframeWidth: 0,
       iframeHeight: 0
     }
